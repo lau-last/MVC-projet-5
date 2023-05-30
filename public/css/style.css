@@ -1,0 +1,39 @@
+* {
+    color: #ECECF1 !important;
+}
+
+.bg-black-light {
+    background: #3E3F4B !important;
+}
+
+.bg-black {
+    background: #343541 !important;
+}
+
+.bg-black-dark {
+    background: #202123 !important;
+}
+
+.bg-green {
+    background: #70A597 !important;
+}
+
+.border-none {
+    border: none !important;
+}
+.m0-12{
+    margin: 0 12px !important;
+}
+textarea{
+    resize: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ECECF1;
+    transition: background-color 5000s ease-in-out 0s;
+}

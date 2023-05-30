@@ -1,0 +1,27 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+   {% for article in articles %}
+       <div class="container mt-5">
+           <div class="card border-none" style="max-width: 720px; margin: auto" >
+               <div class="card-header bg-green border-none">
+                   <h5 class="card-title">{{ article.title }}</h5>
+               </div>
+               <div class="card-body bg-black-light">
+                   <p class="card-text">{{ article.head }}</p>
+                   <p class="card-text">{{ article.content }}</p>
+                   <a href="edit-article&id={{ article.id }}" class="btn btn-warning">Éditer l'article</a>
+                   <a href="delete-article&id={{ article.id }}" class="btn btn-danger">Supprimer</a>
+               </div>
+               <div class="card-footer bg-black-dark">
+                   <p class="card-text">
+                       <small>
+                           Last updated {{ article.date }}
+                           By {{ article.name }}
+                       </small>
+                   </p>
+               </div>
+           </div>
+       </div>
+   {% endfor %}
+{% endblock %}

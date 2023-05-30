@@ -1,0 +1,18 @@
+{
+    "name": "laurentlassallette/htdocs",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Laurent Lassallette",
+            "email": "laurent.last7@gmail.com"
+        }
+    ],
+    "require": {
+      "ext-pdo": "*",
+        "twig/twig": "^3.6"
+    }
+}
