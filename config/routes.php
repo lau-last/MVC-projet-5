@@ -31,7 +31,6 @@ return [
             (new App\Controller\CommentController())->showCreateComment($article_id, $_POST);
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'article-creation' => function () {
@@ -40,7 +39,6 @@ return [
             (new App\Controller\ArticleController())->showArticleCreation($_POST, $user_id);
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'article-gestion' => function () {
@@ -48,7 +46,6 @@ return [
             (new App\Controller\ArticleController())->showCreateArticle();
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'edit-article' => function () {
@@ -58,7 +55,6 @@ return [
             (new App\Controller\ArticleController())->showEditArticle($_POST, $user_id, $id);
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'delete-article' => function () {
@@ -67,7 +63,6 @@ return [
             (new App\Controller\ArticleController())->showDeleteArticle($id);
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'comment-gestion' => function () {
@@ -75,7 +70,6 @@ return [
             (new App\Controller\CommentController())->showInvalidComments();
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'comment-valid' => function () {
@@ -84,7 +78,6 @@ return [
             (new App\Controller\CommentController())->setValidComment($id);
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'delete-comment' => function () {
@@ -93,7 +86,6 @@ return [
             (new App\Controller\CommentController())->setDeleteComment($id);
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'comment-invalid' => function () {
@@ -102,7 +94,6 @@ return [
             (new App\Controller\CommentController())->setInvalidComment($id);
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'user-gestion' => function () {
@@ -110,7 +101,6 @@ return [
             (new App\Controller\UserController())->showUser();
         } else {
             header("Location: index.php");
-            exit();
         }
     },
     'user-user' => function () {
@@ -119,7 +109,6 @@ return [
             (new \App\Controller\UserController())->setUser($id);
         }else {
             header("Location: index.php");
-            exit();
         }
     },
     'user-admin' => function () {
@@ -128,7 +117,6 @@ return [
         (new \App\Controller\UserController())->setAdmin($id);
         }else {
             header("Location: index.php");
-            exit();
         }
     },
     'delete-user' => function () {
@@ -137,12 +125,10 @@ return [
         (new \App\Controller\UserController())->deleteUser($id);
         }else {
             header("Location: index.php");
-            exit();
         }
     },
     'deconnexion' => function () {
         session_destroy();
         header("Location: index.php");
-        exit();
     }
 ];

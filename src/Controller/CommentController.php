@@ -12,7 +12,6 @@ class CommentController extends Controller
         $user_id = $_SESSION['member']['id'];
         $this->comment->createComment($content, $user_id, $article_id);
         header('Location: index.php?url=article&id=' . $article_id);
-        exit();
     }
 
     public function showInvalidComments()
@@ -29,14 +28,12 @@ class CommentController extends Controller
     {
         $this->comment->passToValid($id);
         header("Location: comment-gestion");
-        exit();
     }
 
     public function setInvalidComment($id)
     {
         $this->comment->passToInvalid($id);
         header("Location: comment-gestion");
-        exit();
     }
 
 
@@ -44,7 +41,6 @@ class CommentController extends Controller
     {
         $this->comment->deleteComment($id);
         header("Location: comment-gestion");
-        exit();
     }
 
 }

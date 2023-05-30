@@ -23,7 +23,6 @@ class UserController extends Controller
             $email = $input['email'];
             $this->user->inscription($name, $password, $email);
             header("Location: connexion");
-            exit();
         } else {
             echo $this->twig->render('inscription.twig', [
                 'isConnect' => $this->connexion->isConnect(),
@@ -56,21 +55,18 @@ class UserController extends Controller
     {
         $this->user->setUserUser($id);
         header('Location: user-gestion');
-        exit();
     }
 
     public function setAdmin($id)
     {
         $this->user->setUserAdmin($id);
         header('Location: user-gestion');
-        exit();
     }
 
     public function deleteUser($id)
     {
         $this->user->delete($id);
         header('Location: user-gestion');
-        exit();
     }
 
 }

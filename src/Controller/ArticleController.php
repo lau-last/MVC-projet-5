@@ -47,7 +47,6 @@ class ArticleController extends Controller
             $content = $input['content'];
             $this->article->createArticle($title, $head, $content, $user_id);
             header("Location: articles");
-            exit();
         } else {
             echo $this->twig->render('article-creation.twig', [
             'isConnect' => $this->connexion->isConnect(),
@@ -71,7 +70,6 @@ class ArticleController extends Controller
     {
         $this->article->deleteArticle($id);
         header("Location: article-gestion");
-        exit();
 
     }
 
@@ -83,7 +81,6 @@ class ArticleController extends Controller
             $content = $input['content'];
             $this->article->editArticle($title, $head, $content, $user_id, $id);
             header("Location: article-gestion");
-            exit();
         } else {
             $article = new ArticleModel();
             echo $this->twig->render('article-edit.twig', [
