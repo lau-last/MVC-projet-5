@@ -1,0 +1,60 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <a href="articles" class="btn btn-primary">Retour à la liste des Article</a>
+    </div>
+    <div class="container mt-5">
+        <div class="card border-none" style="max-width: 720px; margin: auto">
+            <div class="card-header bg-green border-none">
+                <h5 class="card-title">{{ article.title }}</h5>
+            </div>
+            <div class="card-body bg-black-light">
+                <p class="card-text">{{ article.head }}</p>
+                <p class="card-text">{{ article.content }}</p>
+            </div>
+            <div class="card-footer bg-black-dark">
+                <p class="card-text">
+                    <small>Dernière modification
+                        le {{ article.date }}
+                        Par {{ article.name }}
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% if isConnect %}
+        <div class="container mt-5">
+            <div style="max-width: 520px; margin: auto">
+                <form action="create-comment&id={{ article.id }}" method="post">
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Votre commentaire</label>
+                        <textarea id="comment" class="form-control bg-black-light border-none" name="comment" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+    {% for comment in comments %}
+        <div class="container mt-5">
+            <div class="card border-none" style="max-width: 520px; margin: auto">
+                <div class="card-header bg-green border-none">
+                    <h5 class="card-title">De {{ comment.name }}</h5>
+                </div>
+                <div class="card-body bg-black-light">
+                    <p class="card-text">{{ comment.content }}</p>
+                </div>
+                <div class="card-footer bg-black-dark">
+                    <p class="card-text">
+                        <small>
+                            {{ comment.date }}
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    {% for article in articles %}
+        <div class="container mt-5">
+            <div class="card border-none" style="max-width: 720px; margin: auto" >
+                <div class="card-header bg-green border-none">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                </div>
+                <div class="card-body bg-black-light">
+                    <p class="card-text">{{ article.head }}</p>
+                    <a href="article&id={{ article.id}}" class="btn btn-primary">Voir l'article</a>
+                </div>
+                <div class="card-footer bg-black-dark">
+                    <p class="card-text">
+                        <small>Dernière modification
+                            le {{ article.date }}
+                            Par {{ article.name }}
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

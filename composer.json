@@ -1,15 +1,18 @@
 {
-    "name": "laurent/htdocs",
+    "name": "laurentlassallette/htdocs",
     "autoload": {
         "psr-4": {
-            "App\\": "src/",
-            "Core\\": "core/"
+            "App\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "Laurent Lassallette",
+            "email": "laurent.last7@gmail.com"
+        }
+    ],
     "require": {
-        "ext-pdo": "*"
-    },
-    "require-dev": {
-        "symfony/var-dumper": "^6.3"
+      "ext-pdo": "*",
+        "twig/twig": "^3.6"
     }
 }

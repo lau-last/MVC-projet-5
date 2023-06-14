@@ -1,0 +1,34 @@
+{% extends 'base.twig' %}
+{% block content %}
+
+    {% if comments == null %}
+        <h2>Pas de commentaire</h2>
+    {% endif %}
+
+    {% for comment in comments %}
+        <div class="container mt-5">
+            <div class="card border-none" style="max-width: 520px; margin: auto">
+                <div class="card-header bg-green border-none">
+                    <h5 class="card-title">{{ comment.name }}</h5>
+                </div>
+                <div class="card-body bg-black-light">
+                    <p class="card-text">{{ comment.content }}</p>
+                    {% if comment.validation == 'invalid' %}
+                        <a href="comment-valid&id={{ comment.id }}" class="btn btn-success">Passer a
+                            visible</a>
+                    {% endif %}
+                    {% if comment.validation == 'valid' %}
+                        <a href="comment-invalid&id={{ comment.id }}" class="btn btn-warning">Passer a
+                            invisible</a>
+                    {% endif %}
+                    <a href="delete-comment&id={{ comment.id }}" class="btn btn-danger">Supprimer</a>
+                </div>
+                <div class="card-footer bg-black-dark">
+                    <p class="card-text">
+                        <small>{{ comment.date }}</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
